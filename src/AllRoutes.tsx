@@ -15,6 +15,7 @@ import FormResponses from './Pages/Responses.tsx'
 
 // Components
 import FormBuilder from "./Componants/FormBuilder.tsx"
+import OrganizationMyForms from './Pages/MyForms.tsx'
 
 export default function AppRoutes() {
     return (
@@ -61,6 +62,15 @@ export default function AppRoutes() {
                     </ProtectedRoute>
                 }
             />
+            <Route
+                path='/my-forms'
+                element={
+                    // <ProtectedRoute allowedRoles={["ORGANIZATION"]}>
+                        <OrganizationMyForms/>
+                    // </ProtectedRoute>
+                }
+            />
+
             <Route
                 path='/form/response/:formId'
                 element={

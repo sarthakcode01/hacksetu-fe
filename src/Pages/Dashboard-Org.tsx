@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Sparkles, Plus, LogOut, Bell, Search, FileText, CheckCircle, BarChart3, Sparkles as AiIcon, TrendingUp, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import LoadingSpinner from '../Componants/LoadingSpinner';
 
 export default function DashboardOverview() {
   const [orgName, setOrgName] = useState("Sarthak Upadhyay");
@@ -94,9 +95,7 @@ export default function DashboardOverview() {
   }, [])
 
   if (loading) {
-    return <div className=" flex items-center justify-center min-h-screen min-w-screen bg-linear-to-br from-slate-950 via-indigo-950 to-slate-950">
-      <div className='text-blue-500 text-3xl'>Loading</div>
-    </div>
+    return <LoadingSpinner />
   }
 
   return (
@@ -274,9 +273,9 @@ export default function DashboardOverview() {
                 <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center">
                   <BarChart3 className="w-5 h-5 text-slate-300" />
                 </div>
-                <div className="flex-1">
-                  <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">View Analytics</p>
-                  <p className="text-slate-400 text-xs">Check insights</p>
+                <div className="flex-1" onClick={()=>navigate("/my-forms")}>
+                  <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">My Forms</p>
+                  <p className="text-slate-400 text-xs">See All forms submitted by the users</p>
                 </div>
               </button>
 
