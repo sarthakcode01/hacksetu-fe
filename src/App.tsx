@@ -22,7 +22,7 @@ export default function FormEaseAI() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-white min-h-screen">
+    <div className="bg-linear-to-br from-slate-950 via-indigo-950 to-slate-950 text-white min-h-screen">
       {/* Navbar */}
       <Navbar isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen}/>
 
