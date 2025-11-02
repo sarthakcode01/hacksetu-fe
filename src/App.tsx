@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Upload, Zap, CheckCircle, Building2, GraduationCap, Shield, Clock, TrendingUp, Lock, FileText, Sparkles, Menu, X, ArrowRight, Play } from 'lucide-react';
+import Navbar from './Componants/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormEaseAI() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navigate= useNavigate()
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -22,42 +24,7 @@ export default function FormEaseAI() {
   return (
     <div className="bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-white min-h-screen">
       {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/80 backdrop-blur-lg border-b border-indigo-500/20' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">FormEaseAI</span>
-          </div>
-          
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="hover:text-indigo-400 transition-colors">Features</a>
-            <a href="#benefits" className="hover:text-indigo-400 transition-colors">Benefits</a>
-            <a href="#use-cases" className="hover:text-indigo-400 transition-colors">Use Cases</a>
-            <button className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:shadow-lg hover:shadow-indigo-500/50 transition-all duration-300">
-              Get Started
-            </button>
-          </div>
-
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-indigo-500/20">
-            <div className="px-6 py-4 space-y-4">
-              <a href="#features" className="block hover:text-indigo-400">Features</a>
-              <a href="#benefits" className="block hover:text-indigo-400">Benefits</a>
-              <a href="#use-cases" className="block hover:text-indigo-400">Use Cases</a>
-              <button className="w-full px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg">
-                Get Started
-              </button>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar isScrolled={isScrolled} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen}/>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
@@ -80,7 +47,7 @@ export default function FormEaseAI() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center space-x-2">
+            <button className="group px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 flex items-center space-x-2" onClick={()=>navigate("/register")}>
               <span>Get Started Free</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
